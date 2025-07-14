@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Minecraft - Aventura</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="game"></div>
+    <div id="crosshair"></div>
+    
+    <div id="ui">
+        <div><strong>🎮 Controles:</strong></div>
+        <div>WASD - Mover</div>
+        <div>Espacio/Shift - Subir/Bajar</div>
+        <div>Click izq - Usar herramienta</div>
+        <div>Click der - Colocar bloque</div>
+        <div>T - Abrir tienda</div>
+        <div>H - Construir casa</div>
+        <div>M - Música On/Off</div>
+    </div>
+    
+    <div id="stats">
+        <div><strong>📊 Estadísticas:</strong></div>
+        <div>💰 Monedas: <span id="coins">50</span></div>
+        <div>🍖 Comida: <span id="food">100</span></div>
+        <div>❤️ Salud: <span id="health">100</span></div>
+        <div>🌳 Madera: <span id="wood">0</span></div>
+        <div>🪨 Piedra: <span id="stone">0</span></div>
+        <div>⭐ Nivel: <span id="level">1</span></div>
+    </div>
+    
+    <div id="inventory">
+        <div><strong>🎒 Inventario:</strong></div>
+        <div>🏠 Casas: <span id="houses">0</span></div>
+        <div>👕 Ropa: <span id="clothes">Básica</span></div>
+        <div>🏆 Logros: <span id="achievements">0</span></div>
+    </div>
+    
+    <div id="blockSelector">
+        <div class="block-option selected" data-block="grass" style="background-color: #4CAF50;">Hierba</div>
+        <div class="block-option" data-block="dirt" style="background-color: #8B4513;">Tierra</div>
+        <div class="block-option" data-block="stone" style="background-color: #808080;">Piedra</div>
+        <div class="block-option" data-block="sand" style="background-color: #F4A460;">Arena</div>
+        <div class="block-option" data-block="wood" style="background-color: #8B4513;">Madera</div>
+    </div>
+    
+    <div id="tools">
+        <div class="tool-option selected" data-tool="hand" style="background-color: #FFE4B5;">✋<br>Mano</div>
+        <div class="tool-option" data-tool="axe" style="background-color: #8B4513;">🪓<br>Hacha</div>
+        <div class="tool-option" data-tool="sword" style="background-color: #C0C0C0;">⚔️<br>Espada</div>
+        <div class="tool-option" data-tool="pickaxe" style="background-color: #696969;">⛏️<br>Pico</div>
+    </div>
+    
+    <div id="shop">
+        <h3>🏪 Tienda del Aldeano</h3>
+        <div class="shop-item">
+            <span>🪓 Hacha de Madera</span>
+            <span>20 💰</span>
+            <button class="buy-btn" onclick="game.buyItem('axe', 20)">Comprar</button>
+        </div>
+        <div class="shop-item">
+            <span>⚔️ Espada de Hierro</span>
+            <span>35 💰</span>
+            <button class="buy-btn" onclick="game.buyItem('sword', 35)">Comprar</button>
+        </div>
+        <div class="shop-item">
+            <span>⛏️ Pico de Piedra</span>
+            <span>30 💰</span>
+            <button class="buy-btn" onclick="game.buyItem('pickaxe', 30)">Comprar</button>
+        </div>
+        <div class="shop-item">
+            <span>🍖 Comida (50 puntos)</span>
+            <span>10 💰</span>
+            <button class="buy-btn" onclick="game.buyItem('food', 10)">Comprar</button>
+        </div>
+        <div class="shop-item">
+            <span>👕 Ropa de Aventurero</span>
+            <span>25 💰</span>
+            <button class="buy-btn" onclick="game.buyItem('clothes', 25)">Comprar</button>
+        </div>
+        <div class="shop-item">
+            <span>🏠 Kit de Casa</span>
+            <span>50 💰</span>
+            <button class="buy-btn" onclick="game.buyItem('house', 50)">Comprar</button>
+        </div>
+        <button onclick="game.closeShop()" class="close-btn">Cerrar</button>
+    </div>
+    
+    <div id="message"></div>
+    
+    <div id="loading">
+        <div class="loading-text">🎮 Cargando Mini Minecraft...</div>
+        <div class="loading-bar">
+            <div class="loading-fill"></div>
+        </div>
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="musicAudio" loop>
+        <source src="/sounds/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="placeAudio">
+        <source src="sounds/place.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="breakAudio">
+        <source src="sounds/break.mp3" type="audio/mpeg">
+    </audio>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- <script src="libs/three.min.js"></script> -->
+    <script src="script.js"></script>
+</body>
+</html>
