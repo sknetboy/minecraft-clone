@@ -1,0 +1,33 @@
+# Laravel folders
+/vendor/
+/node_modules/
+/storage/*.key
+/storage/app/public
+/storage/debugbar/
+/.env
+/.idea/
+/*.log
+
+# Frontend & build tools
+/public/js/*.min.js
+/public/css/*.min.css
+/public/mix-manifest.json
+/public/hot
+/public/build/
+
+# Sistema operativo / IDE basura
+.DS_Store
+Thumbs.db
+*.swp
+*.sublime*
+*.vscode/
+*.bak
+
+# Termux / sistemas personalizados
+*.pyc
+__pycache__/
+/*.sqlite
+
+# Archivos temporales
+*.tmp
+*.cache
